@@ -5,8 +5,8 @@ function Navbar() {
 	return (
 		<div className="h-14 border-b shadow flex items-center">
 			<Container>
-				<div className="flex justify-between flex-row-reverse">
-					<ul className="flex flex-row-reverse">
+				<div className="flex justify-between">
+					<ul className="flex">
 						<li className="ml-4">
 							<Link to="/">خانه</Link>
 						</li>

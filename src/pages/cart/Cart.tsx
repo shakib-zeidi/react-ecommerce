@@ -6,7 +6,7 @@ function Cart() {
 	return (
 		<div>
 			<Container>
-				<div className="">
+				<div>
 					<CartItem />
 					<CartItem />
 					<CartItem />
@@ -14,11 +14,11 @@ function Cart() {
 					<CartItem />
 				</div>
 
-				<div className="bg-gray-200 rounded p-6 mt-4 mb-4 flex flex-row-reverse justify-between items-center">
+				<div className="bg-gray-200 rounded p-6 mt-4 mb-4 flex justify-between items-center">
 					<div>
-						<p className="text-right">قیمت کل : 20,0000 تومان</p>
-						<p className="text-right">تخفیف شما : 2,0000 تومان</p>
-						<p className="text-right">قیمت نهایی : 18,000 تومان</p>
+						<p>قیمت کل : 20,0000 تومان</p>
+						<p>تخفیف شما : 2,0000 تومان</p>
+						<p>قیمت نهایی : 18,000 تومان</p>
 					</div>
 					<div>
 						<Button className="rounded p-2" variant="success">

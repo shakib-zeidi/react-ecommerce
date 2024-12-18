@@ -1,9 +1,9 @@
 import { ContainerInterface } from "../../interfaces";
 
-function Container({ children }: ContainerInterface) {
+function Container({ children, className }: ContainerInterface) {
 	return (
 		<>
-			<div className="container mx-auto">{children}</div>
+			<div className={`container mx-auto ${className}`}>{children}</div>
 		</>
 	);
 }

@@ -9,11 +9,11 @@ function Product() {
 		<div>
 			<Container>
 				<div className="h-96 shadow mt-4 grid grid-cols-12">
-					<div className="col-span-7 p-4 rounded-l">
-						<h1 className="text-right">عنوان محصول</h1>
+					<div className="col-span-7 p-4 rounded-l order-1">
+						<h1>عنوان محصول</h1>
 						<div>
-							<p className="text-right">قیمت : 55,000 تومان</p>
-							<p className="text-right">
+							<p>قیمت : 55,000 تومان</p>
+							<p>
 								ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
 								صنعت چاپ و با استفاده از طراحان گرافیک است
 								چاپگرها و متون بلکه روزنامه و مجله در ستون و

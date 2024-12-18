@@ -2,7 +2,7 @@ import Button from "../button/Button";
 
 function CartItem() {
 	return (
-		<div className="flex justify-between flex-row-reverse items-center mt-5 shadow p-4">
+		<div className="flex justify-between items-center mt-5 shadow p-4">
 			<div>
 				<img
 					className="rounded w-48"
@@ -11,19 +11,19 @@ function CartItem() {
 				/>
 			</div>
 			<div>
-				<h2 className="text-right">عنوان محصول</h2>
+				<h2>عنوان محصول</h2>
 			</div>
-			<div className="mr-4">
+			<div className="ml-4">
 				<div className="mt-2">
-					<Button className="rounded mr-2 p-2" variant="danger">
-						حذف محصول
-					</Button>
-					<Button className="rounded p-2" variant="primary">
+					<Button className="rounded px-2" variant="primary">
 						+
 					</Button>
 					<span className="mx-2">{2}</span>
-					<Button className="rounded p-2" variant="primary">
+					<Button className="rounded px-2" variant="primary">
 						-
+					</Button>
+					<Button className="rounded mr-2 p-1" variant="danger">
+						حذف محصول
 					</Button>
 				</div>
 			</div>

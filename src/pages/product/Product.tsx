@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import Container from "../../components/container/Container";
+import Button from "../../components/button/Button";
 
 function Product() {
 	const params = useParams();
@@ -44,9 +45,14 @@ function Product() {
 							src="/public/car.webp"
 							alt="car-img"
 						/>
-						<div>
-							<button>Add To Cart</button>
-						</div>
+						<Button
+							onClick={() => {
+								alert("Added To Cart");
+							}}
+							id="btn"
+						>
+							Add To Cart
+						</Button>
 					</div>
 				</div>
 			</Container>

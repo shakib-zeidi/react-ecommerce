@@ -9,7 +9,7 @@ function Product() {
 		<div>
 			<Container>
 				<div className="h-96 shadow mt-4 grid grid-cols-12">
-					<div className="col-span-10 p-4">
+					<div className="col-span-10 p-4 bg-slate-300 rounded-l">
 						<h1 className="text-right">عنوان محصول</h1>
 						<div>
 							<p className="text-right">قیمت : 55,000 تومان</p>
@@ -39,9 +39,9 @@ function Product() {
 							</p>
 						</div>
 					</div>
-					<div className="col-span-2 p-4 bg-sky-200">
+					<div className="col-span-2 bg-slate-100 shadow rounded-br">
 						<img
-							className="rounded"
+							className="max-w-full h-auto rounded-tr"
 							src="/public/car.webp"
 							alt="car-img"
 						/>

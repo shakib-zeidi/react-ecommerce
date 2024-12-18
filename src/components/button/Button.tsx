@@ -12,11 +12,11 @@ function Button({ children, variant, style, ...rest }: ButtonType) {
 
 export default Button;
 
-function checkVariant(variant: ButtonVariant) {
+function checkVariant(variant?: ButtonVariant) {
 	switch (variant) {
 		case "primary":
 			return {
-				backgroundColor: "blue",
+				backgroundColor: "#008bff",
 				color: "white",
 			};
 		case "secondary":

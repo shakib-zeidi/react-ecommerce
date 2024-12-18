@@ -1,25 +1,23 @@
-function ProductItem() {
+import { ProductItemType } from "../../types";
+
+function ProductItem({ title, price, description, image }: ProductItemType) {
 	return (
-		<div className="shadow border rounded pb-2 mb-5">
-			<div>
-				<img
-					className="rounded-t"
-					src="/public/car.webp"
-					alt="car-img"
-				/>
-				<div className="flex justify-between p-4 mt-2">
-					<h3>عنوان محصول</h3>
-					<span>55,000 تومان</span>
+		<div className="shadow border rounded mt-5 h-full flex flex-col">
+			{/* بخش تصویر و عنوان */}
+			<div className="flex flex-col items-center p-4">
+				<div className="w-32 h-32 flex items-center justify-center">
+					<img
+						className="rounded object-contain w-full h-full"
+						src={image}
+						alt="product-img"
+					/>
 				</div>
+				<h3 className="mt-2 line-clamp-1 font-bold text-center w-full">{title}</h3>
 			</div>
-			<div className="p-4 mt-1">
-				<p className="line-clamp-2">
-					لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-					با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه
-					و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-					تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-					کاربردی می باشد
-				</p>
+			{/* بخش قیمت و توضیحات */}
+			<div className="p-4 flex flex-col justify-between flex-1">
+				<span className="font-bold text-green-600 mb-2">{price} $</span>
+				<p className="line-clamp-2 text-gray-500">{description}</p>
 			</div>
 		</div>
 	);

@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import Container from "../../components/container/Container";
-import { ShoppingCartContext } from "../../context/shoppingCartContext";
+import useShoppingCartContext from "../../hooks/usShoppingCartContext";
 
 function Cart() {
-	const { cartItems } = useContext(ShoppingCartContext);
+	const { cartItems } = useShoppingCartContext();
 
 	return (
 		<div>

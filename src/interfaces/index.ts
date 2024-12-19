@@ -28,6 +28,11 @@ export interface ShoppingCartProviderInterface {
 	children: ReactNode;
 }
 
+export interface CartItemInterface {
+	id: number;
+	qty: number;
+}
+
 export interface ShoppingCartContextInterface {
-	cartItems: []
+	cartItems: CartItemInterface[]
 }

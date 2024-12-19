@@ -1,15 +1,18 @@
-import { createContext, useState } from "react";
-import { ShoppingCartContextInterface, ShoppingCartProviderInterface } from "../interfaces";
+import { createContext, useContext, useState } from "react";
+import {
+	CartItemInterface,
+	ShoppingCartContextInterface,
+	ShoppingCartProviderInterface,
+} from "../interfaces";
 
-
-export const ShoppingCartContext = createContext<ShoppingCartContextInterface>({
-    cartItems: []
-});
+export const ShoppingCartContext = createContext(
+	{} as ShoppingCartContextInterface
+);
 
 export function ShoppingCartProvider({
 	children,
 }: ShoppingCartProviderInterface) {
-    const [cartItems, setCartItems] = useState<[]>([]);
+	const [cartItems, setCartItems] = useState<CartItemInterface[]>([]);
 
 	return (
 		<ShoppingCartContext.Provider value={{ cartItems }}>

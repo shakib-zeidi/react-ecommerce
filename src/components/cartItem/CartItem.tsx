@@ -22,7 +22,7 @@ function CartItem() {
 					<Button className="rounded px-2" variant="primary">
 						-
 					</Button>
-					<Button className="rounded mr-2 p-1" variant="danger">
+					<Button className="rounded mr-2 px-3 py-1" variant="danger">
 						حذف محصول
 					</Button>
 				</div>

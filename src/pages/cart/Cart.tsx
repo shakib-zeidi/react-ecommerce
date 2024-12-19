@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import Container from "../../components/container/Container";
+import { ShoppingCartContext } from "../../context/shoppingCartContext";
 
 function Cart() {
+	const { cartItems } = useContext(ShoppingCartContext);
+
 	return (
 		<div>
 			<Container>
@@ -21,7 +25,7 @@ function Cart() {
 						<p>قیمت نهایی : 18,000 تومان</p>
 					</div>
 					<div>
-						<Button className="rounded p-2" variant="success">
+						<Button className="rounded px-3 py-1" variant="success">
 							ثبت سفارش
 						</Button>
 					</div>

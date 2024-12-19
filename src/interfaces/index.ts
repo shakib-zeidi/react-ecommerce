@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ContainerInterface {
 	children: React.ReactNode;
 	className?: string;
@@ -20,4 +22,12 @@ export interface ProductInterface {
 export interface ProductRatingInterface {
 	rate: number;
 	count: number;
+}
+
+export interface ShoppingCartProviderInterface {
+	children: ReactNode;
+}
+
+export interface ShoppingCartContextInterface {
+	cartItems: []
 }

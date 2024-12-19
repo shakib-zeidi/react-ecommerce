@@ -3,10 +3,10 @@ import Container from "../../components/container/Container";
 import ProductItem from "../../components/productItem/ProductItem";
 import { useEffect, useState } from "react";
 import { getProducts } from "../../services/api";
-import { ProductsType } from "../../interfaces";
+import { ProductsInterface } from "../../interfaces";
 
 function Store() {
-	const [products, setProducts] = useState<ProductsType[]>([]);
+	const [products, setProducts] = useState<ProductsInterface[]>([]);
 
 	useEffect(() => {
 		getProducts().then((result) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductsInterface } from "../interfaces";
+import { ProductInterface } from "../interfaces";
 
 export type ButtonVariant =
 	| "primary"
@@ -12,4 +12,4 @@ export type ButtonType = React.ComponentProps<"button"> & {
 	variant?: ButtonVariant;
 };
 
-export type ProductItemType = ProductsInterface;
+export type ProductItemType = ProductInterface;

@@ -7,17 +7,17 @@ export interface HomeLayoutInterface {
 	children: React.ReactNode;
 }
 
-export interface ProductsInterface {
+export interface ProductInterface {
 	id: string;
 	title: string;
 	price: number;
 	description: string;
 	category: string;
 	image: string;
-	rating: ProductsRatingInterface;
+	rating: ProductRatingInterface;
 }
 
-export interface ProductsRatingInterface {
+export interface ProductRatingInterface {
 	rate: number;
 	count: number;
 }

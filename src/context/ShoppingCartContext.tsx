@@ -37,9 +37,31 @@ export function ShoppingCartProvider({
 		});
 	};
 
+	const handleDecreaseProductQty = (id :number) => {
+		setCartItems(currentProducts => {
+			let selectedProduct = currentProducts.find(product => product.id == id);
+
+			if (selectedProduct?.qty === 1) {
+				return currentProducts.filter(product => product.id !== id)
+			} 
+			else {
+				return currentProducts.map((product) => {
+					if (product.id == id) {
+						return {
+							...product,
+							qty: product.qty - 1,
+						};
+					} else {
+						return product;
+					}
+				});
+			}	
+		})
+	}
+
 	return (
 		<ShoppingCartContext.Provider
-			value={{ cartItems, handleIncreaseProductQty }}
+			value={{ cartItems, handleIncreaseProductQty, handleDecreaseProductQty }}
 		>
 			{children}
 		</ShoppingCartContext.Provider>

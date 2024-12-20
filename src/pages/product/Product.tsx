@@ -10,7 +10,7 @@ function Product() {
 	const params = useParams<{ id: string }>();
 	const [product, setProduct] = useState<ProductInterface>();
 
-	const { handleIncreaseProductQty, cartItems } = useShoppingCartContext();
+	const { handleIncreaseProductQty, handleDecreaseProductQty, cartItems } = useShoppingCartContext();
 
 	useEffect(() => {
 		getProduct(params.id as string).then((data) => {
@@ -64,6 +64,15 @@ function Product() {
 							variant="primary"
 						>
 							اضاقه به سبد خرید
+						</Button>
+						<Button
+							onClick={() => {
+								handleDecreaseProductQty(parseInt(params.id as string))
+							}}
+							className="rounded-br p-2 w-full"
+							variant="primary"
+						>
+							-
 						</Button>
 					</div>
 				</div>

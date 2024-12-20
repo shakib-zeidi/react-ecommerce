@@ -14,6 +14,7 @@ function Product() {
 		handleIncreaseProductQty,
 		handleDecreaseProductQty,
 		getProductQty,
+		handleRemoveProduct,
 		cartItems,
 	} = useShoppingCartContext();
 
@@ -70,35 +71,51 @@ function Product() {
 								اضافه به سبد خرید
 							</Button>
 						) : (
-							<div className="flex flex-row-reverse">
+							<>
+								<div className="flex flex-row-reverse gap-2">
+									<Button
+										onClick={() =>
+											handleIncreaseProductQty(
+												parseInt(params.id as string)
+											)
+										}
+										className="p-2 w-full"
+										variant="primary"
+									>
+										+
+									</Button>
+
+									<span className="bg-green-400 px-4 py-2 text-white rounded">
+										{getProductQty(
+											parseInt(params.id as string)
+										)}
+									</span>
+
+									<Button
+										onClick={() => {
+											handleDecreaseProductQty(
+												parseInt(params.id as string)
+											);
+										}}
+										className="p-2 rounded-br w-full"
+										variant="primary"
+									>
+										-
+									</Button>
+								</div>
+
 								<Button
 									onClick={() =>
-										handleIncreaseProductQty(
+										handleRemoveProduct(
 											parseInt(params.id as string)
 										)
 									}
-									className="p-2 w-full"
-									variant="primary"
+									className="p-2 mt-2 w-full"
+									variant="danger"
 								>
-									+
+									حذف محصول
 								</Button>
-								<span className="bg-green-400 px-4 py-2 text-white">
-									{getProductQty(
-										parseInt(params.id as string)
-									)}
-								</span>
-								<Button
-									onClick={() => {
-										handleDecreaseProductQty(
-											parseInt(params.id as string)
-										);
-									}}
-									className="p-2 rounded-br w-full"
-									variant="primary"
-								>
-									-
-								</Button>
-							</div>
+							</>
 						)}
 					</div>
 				</div>

@@ -64,13 +64,20 @@ export function ShoppingCartProvider({
 		return cartItems.find((item) => item.id == id)?.qty || 0;
 	};
 
+	const handleRemoveProduct = (id: number) => {
+		setCartItems((currentProducts) =>
+			currentProducts.filter((product) => product.id != id)
+		);
+	};
+
 	return (
 		<ShoppingCartContext.Provider
 			value={{
 				cartItems,
 				handleIncreaseProductQty,
 				handleDecreaseProductQty,
-				getProductQty
+				getProductQty,
+				handleRemoveProduct,
 			}}
 		>
 			{children}

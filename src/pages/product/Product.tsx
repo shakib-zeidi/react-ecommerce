@@ -10,15 +10,18 @@ function Product() {
 	const params = useParams<{ id: string }>();
 	const [product, setProduct] = useState<ProductInterface>();
 
-	const { handleIncreaseProductQty, handleDecreaseProductQty, cartItems } = useShoppingCartContext();
+	const {
+		handleIncreaseProductQty,
+		handleDecreaseProductQty,
+		getProductQty,
+		cartItems,
+	} = useShoppingCartContext();
 
 	useEffect(() => {
 		getProduct(params.id as string).then((data) => {
 			setProduct(data);
 		});
 	}, []);
-
-	console.log(cartItems);
 
 	return (
 		<div>
@@ -54,26 +57,33 @@ function Product() {
 							src={product?.image}
 							alt="car-img"
 						/>
-						<Button
-							onClick={() =>
-								handleIncreaseProductQty(
-									parseInt(params.id as string)
-								)
-							}
-							className="rounded-br p-2 w-full"
-							variant="primary"
-						>
-							اضاقه به سبد خرید
-						</Button>
-						<Button
-							onClick={() => {
-								handleDecreaseProductQty(parseInt(params.id as string))
-							}}
-							className="rounded-br p-2 w-full"
-							variant="primary"
-						>
-							-
-						</Button>
+						<div className="flex items-center">
+							<Button
+								onClick={() =>
+									handleIncreaseProductQty(
+										parseInt(params.id as string)
+									)
+								}
+								className="rounded-br p-2 w-full"
+								variant="primary"
+							>
+								اضافه به سبد خرید
+							</Button>
+							<span className="bg-green-400 px-4 py-2 text-white">
+								{getProductQty(parseInt(params.id as string))}
+							</span>
+							<Button
+								onClick={() => {
+									handleDecreaseProductQty(
+										parseInt(params.id as string)
+									);
+								}}
+								className="p-2 w-full"
+								variant="primary"
+							>
+								-
+							</Button>
+						</div>
 					</div>
 				</div>
 			</Container>

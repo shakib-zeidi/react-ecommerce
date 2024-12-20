@@ -37,4 +37,5 @@ export interface ShoppingCartContextInterface {
 	cartItems: CartItemInterface[];
 	handleIncreaseProductQty: (id: number) => void;
 	handleDecreaseProductQty: (id: number) => void;
+	getProductQty: (id: number) => number;
 }

@@ -37,14 +37,15 @@ export function ShoppingCartProvider({
 		});
 	};
 
-	const handleDecreaseProductQty = (id :number) => {
-		setCartItems(currentProducts => {
-			let selectedProduct = currentProducts.find(product => product.id == id);
+	const handleDecreaseProductQty = (id: number) => {
+		setCartItems((currentProducts) => {
+			let selectedProduct = currentProducts.find(
+				(product) => product.id == id
+			);
 
 			if (selectedProduct?.qty === 1) {
-				return currentProducts.filter(product => product.id !== id)
-			} 
-			else {
+				return currentProducts.filter((product) => product.id !== id);
+			} else {
 				return currentProducts.map((product) => {
 					if (product.id == id) {
 						return {
@@ -55,13 +56,22 @@ export function ShoppingCartProvider({
 						return product;
 					}
 				});
-			}	
-		})
-	}
+			}
+		});
+	};
+
+	const getProductQty = (id: number) => {
+		return cartItems.find((item) => item.id == id)?.qty || 0;
+	};
 
 	return (
 		<ShoppingCartContext.Provider
-			value={{ cartItems, handleIncreaseProductQty, handleDecreaseProductQty }}
+			value={{
+				cartItems,
+				handleIncreaseProductQty,
+				handleDecreaseProductQty,
+				getProductQty
+			}}
 		>
 			{children}
 		</ShoppingCartContext.Provider>

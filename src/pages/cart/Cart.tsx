@@ -1,17 +1,18 @@
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import Container from "../../components/container/Container";
+import useShoppingCartContext from "../../hooks/usShoppingCartContext";
 
 function Cart() {
+	const { cartItems } = useShoppingCartContext();
+
 	return (
 		<div>
 			<Container>
 				<div>
-					<CartItem />
-					<CartItem />
-					<CartItem />
-					<CartItem />
-					<CartItem />
+					{cartItems.map((item) => (
+						<CartItem {...item} />
+					))}
 				</div>
 
 				<div className="bg-gray-200 rounded p-6 mt-4 mb-4 flex justify-between items-center">

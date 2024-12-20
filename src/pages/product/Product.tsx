@@ -57,7 +57,7 @@ function Product() {
 							src={product?.image}
 							alt="car-img"
 						/>
-						<div className="flex items-center">
+						{getProductQty(parseInt(params.id as string)) === 0 ? (
 							<Button
 								onClick={() =>
 									handleIncreaseProductQty(
@@ -69,21 +69,37 @@ function Product() {
 							>
 								اضافه به سبد خرید
 							</Button>
-							<span className="bg-green-400 px-4 py-2 text-white">
-								{getProductQty(parseInt(params.id as string))}
-							</span>
-							<Button
-								onClick={() => {
-									handleDecreaseProductQty(
+						) : (
+							<div className="flex flex-row-reverse">
+								<Button
+									onClick={() =>
+										handleIncreaseProductQty(
+											parseInt(params.id as string)
+										)
+									}
+									className="p-2 w-full"
+									variant="primary"
+								>
+									+
+								</Button>
+								<span className="bg-green-400 px-4 py-2 text-white">
+									{getProductQty(
 										parseInt(params.id as string)
-									);
-								}}
-								className="p-2 w-full"
-								variant="primary"
-							>
-								-
-							</Button>
-						</div>
+									)}
+								</span>
+								<Button
+									onClick={() => {
+										handleDecreaseProductQty(
+											parseInt(params.id as string)
+										);
+									}}
+									className="p-2 rounded-br w-full"
+									variant="primary"
+								>
+									-
+								</Button>
+							</div>
+						)}
 					</div>
 				</div>
 			</Container>

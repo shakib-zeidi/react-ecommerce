@@ -1,11 +1,8 @@
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import Container from "../../components/container/Container";
-import useShoppingCartContext from "../../hooks/usShoppingCartContext";
 
 function Cart() {
-	const { cartItems } = useShoppingCartContext();
-
 	return (
 		<div>
 			<Container>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import {
 	CartItemInterface,
 	ShoppingCartContextInterface,
@@ -14,8 +14,33 @@ export function ShoppingCartProvider({
 }: ShoppingCartProviderInterface) {
 	const [cartItems, setCartItems] = useState<CartItemInterface[]>([]);
 
+	const handleIncreaseProductQty = (id: number) => {
+		setCartItems((currentProducts) => {
+			let selectedProduct = currentProducts.find(
+				(product) => product.id == id
+			);
+
+			if (selectedProduct == null) {
+				return [...currentProducts, { id: id, qty: 1 }];
+			} else {
+				return currentProducts.map((product) => {
+					if (product.id == id) {
+						return {
+							...product,
+							qty: product.qty + 1,
+						};
+					} else {
+						return product;
+					}
+				});
+			}
+		});
+	};
+
 	return (
-		<ShoppingCartContext.Provider value={{ cartItems }}>
+		<ShoppingCartContext.Provider
+			value={{ cartItems, handleIncreaseProductQty }}
+		>
 			{children}
 		</ShoppingCartContext.Provider>
 	);

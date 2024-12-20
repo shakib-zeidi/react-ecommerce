@@ -34,5 +34,6 @@ export interface CartItemInterface {
 }
 
 export interface ShoppingCartContextInterface {
-	cartItems: CartItemInterface[]
+	cartItems: CartItemInterface[];
+	handleIncreaseProductQty: (id: number) => void;
 }

@@ -4,29 +4,47 @@ import Button from "../../components/button/Button";
 import { useEffect, useState } from "react";
 import { getProduct } from "../../services/api";
 import { ProductInterface } from "../../interfaces";
+import useShoppingCartContext from "../../hooks/usShoppingCartContext";
 
 function Product() {
 	const params = useParams<{ id: string }>();
 	const [product, setProduct] = useState<ProductInterface>();
 
+	const { handleIncreaseProductQty, cartItems } = useShoppingCartContext();
+
 	useEffect(() => {
 		getProduct(params.id as string).then((data) => {
-			setProduct(data)
+			setProduct(data);
 		});
 	}, []);
+
+	console.log(cartItems);
 
 	return (
 		<div>
 			<Container>
 				<div className="h-auto shadow mt-5 grid grid-cols-12 rounded">
 					<div className="col-span-7 order-1">
-						<h1 className="p-4">عنوان محصول : <br /> <span className="text-gray-500">{product?.title}</span></h1>
+						<h1 className="p-4">
+							عنوان محصول : <br />{" "}
+							<span className="text-gray-500">
+								{product?.title}
+							</span>
+						</h1>
 						<hr />
 						<div>
-							<p className="p-4">قیمت : <br /> <span className="text-gray-500">{product?.price} $</span></p>
+							<p className="p-4">
+								قیمت : <br />{" "}
+								<span className="text-gray-500">
+									{product?.price} $
+								</span>
+							</p>
 							<hr />
 							<p className="p-4">
-								توضیحات محصول : <br /> <span className="text-gray-500">{product?.description}</span>
+								توضیحات محصول : <br />{" "}
+								<span className="text-gray-500">
+									{product?.description}
+								</span>
 							</p>
 						</div>
 					</div>
@@ -37,10 +55,15 @@ function Product() {
 							alt="car-img"
 						/>
 						<Button
+							onClick={() =>
+								handleIncreaseProductQty(
+									parseInt(params.id as string)
+								)
+							}
 							className="rounded-br p-2 w-full"
 							variant="primary"
 						>
-							Add To Cart
+							اضاقه به سبد خرید
 						</Button>
 					</div>
 				</div>

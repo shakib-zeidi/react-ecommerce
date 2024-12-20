@@ -70,6 +70,8 @@ export function ShoppingCartProvider({
 		);
 	};
 
+	const cartQty = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0)
+
 	return (
 		<ShoppingCartContext.Provider
 			value={{
@@ -78,6 +80,7 @@ export function ShoppingCartProvider({
 				handleDecreaseProductQty,
 				getProductQty,
 				handleRemoveProduct,
+				cartQty
 			}}
 		>
 			{children}

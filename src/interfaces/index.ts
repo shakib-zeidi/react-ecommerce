@@ -39,4 +39,5 @@ export interface ShoppingCartContextInterface {
 	handleDecreaseProductQty: (id: number) => void;
 	getProductQty: (id: number) => number;
 	handleRemoveProduct: (id: number) => void;
+	cartQty: number;
 }
